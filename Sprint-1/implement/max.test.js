@@ -12,11 +12,47 @@ We have set things up already so that this file can see your function from the o
 
 const findMax = require("./max.js");
 
+test("give an empty array, return infinity", () => {
+  expect(findMax([])).toBe(-Infinity);
+});
+
+test("given a array with one number, return number", () => {
+  expect(findMax([7])).toBe(7);
+});
+
+test("given a array with negative and positive numbers, return the largest number overall", () => {
+  const mixedArray = [7, 8, -9, -10, 12, 13];
+  expect(findMax([mixedArray])).toBe(13);
+});
+
+test("given a array with negative numbers, return closest to 0", () => {
+  const negativeArray = [-9, -10, -12, -13];
+  expect(findMax([negativeArray])).toBe(-9);
+});
+
+test("given an array with decimal numbers, return largest decimal number", () => {
+  const decimalArray = [2.4, 5.5, 8.5, 9.2, 6.9];
+  expect(findMax([decimalArray])).toBe(9.2);
+});
+
+test("given an array with non-number values, ignore them and return max number", () => {
+  const mixedArray = ["apple", 5, "banana", 10, 3];
+  expect(findMax(mixedArray)).toBe(10);
+});
+
+test("given an array with only non-number values, return -Infinity", () => {
+  const nonNumbers = ["apple", "banana", null, undefined];
+  expect(findMax(nonNumbers)).toBe(-Infinity);
+});
+
+test("given an empty array, returns -Infinity", () => {
+  expect(findMax([])).toBe(-Infinity);
+});
+
 // Given an empty array
 // When passed to the max function
 // Then it should return -Infinity
 // Delete this test.todo and replace it with a test.
-test.todo("given an empty array, returns -Infinity");
 
 // Given an array with one number
 // When passed to the max function
