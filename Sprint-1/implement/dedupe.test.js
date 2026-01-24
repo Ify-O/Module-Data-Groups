@@ -1,4 +1,19 @@
 const dedupe = require("./dedupe.js");
+
+test("given an empty array, it returns an empty array", () => {
+  expect(dedupe([])).toEqual([]);
+});
+
+test("given an array with no duplicates, it returns the same array", () => {
+  const input = [1, 2, 3];
+  expect(dedupe(input)).toEqual([1, 2, 3]);
+});
+
+test("removes duplicates, keeping the first occurrence", () => {
+  const input = ["a", "a", "b", "b", "c"];
+  expect(dedupe(input)).toEqual(["a", "b", "c"]);
+});
+
 /*
 Dedupe Array
 
