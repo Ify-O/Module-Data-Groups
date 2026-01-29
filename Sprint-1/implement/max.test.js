@@ -12,7 +12,7 @@ We have set things up already so that this file can see your function from the o
 
 const findMax = require("./max.js");
 
-test("give an empty array, return infinity", () => {
+test("given an empty array, return -infinity", () => {
   expect(findMax([])).toBe(-Infinity);
 });
 
@@ -22,17 +22,17 @@ test("given a array with one number, return number", () => {
 
 test("given a array with negative and positive numbers, return the largest number overall", () => {
   const mixedArray = [7, 8, -9, -10, 12, 13];
-  expect(findMax([mixedArray])).toBe(13);
+  expect(findMax(mixedArray)).toBe(13);
 });
 
 test("given a array with negative numbers, return closest to 0", () => {
   const negativeArray = [-9, -10, -12, -13];
-  expect(findMax([negativeArray])).toBe(-9);
+  expect(findMax(negativeArray)).toBe(-9);
 });
 
 test("given an array with decimal numbers, return largest decimal number", () => {
   const decimalArray = [2.4, 5.5, 8.5, 9.2, 6.9];
-  expect(findMax([decimalArray])).toBe(9.2);
+  expect(findMax(decimalArray)).toBe(9.2);
 });
 
 test("given an array with non-number values, ignore them and return max number", () => {
