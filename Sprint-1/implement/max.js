@@ -1,8 +1,8 @@
 function findMax(array) {
-  // filter only numbers and ignore others
-  const numbers = array.filter((item) => typeof item === "number");
+  const numbers = array.filter(
+    (item) => typeof item === "number" && !isNaN(item)
+  );
 
-  // use the Math.max on filtered array
   return numbers.length ? Math.max(...numbers) : -Infinity;
 }
 
