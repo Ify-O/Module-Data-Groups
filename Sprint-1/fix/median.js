@@ -7,21 +7,22 @@
 
 function calculateMedian(lists) {
   if (!Array.isArray(lists)) return null;
-  let newList = [];
 
-  for (let i = 0; i < lists.length; i++) {
-    if (typeof lists[i] === "number") {
-      newList.push(lists[i]);
-    }
-  }
+  const newList = lists.filter(
+    (item) => typeof item === "number" && !isNaN(item)
+  );
+
   if (newList.length === 0) return null;
+
   newList.sort((a, b) => a - b);
+
   const middleIndex = Math.floor(newList.length / 2);
+
   if (newList.length % 2 === 0) {
     return (newList[middleIndex - 1] + newList[middleIndex]) / 2;
-  } else {
-    return newList[middleIndex];
   }
+
+  return newList[middleIndex];
 }
 
 module.exports = calculateMedian;
