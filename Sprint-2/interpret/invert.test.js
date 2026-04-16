@@ -1,0 +1,16 @@
+const invert = require("./invert.js");
+
+test("inverts a simple object", () => {
+  expect(invert({ a: 1 })).toEqual({ 1: "a" });
+});
+
+test("inverts multiple key-value pairs", () => {
+  expect(invert({ a: 1, b: 2 })).toEqual({
+    1: "a",
+    2: "b",
+  });
+});
+
+test("returns empty object when input is empty", () => {
+  expect(invert({})).toEqual({});
+});
